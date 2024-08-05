@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Pesquisa de Mercado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .question {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        .option {
+            margin-top: 5px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .section h3 {
+            margin-top: 30px;
+            color: #343a40;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table, th, td {
+            border: 1px solid #ced4da;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            label {
+                margin-top: 10px;
+            }
+
+            .button {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+
+        .section {
+            border: 1px solid #ced4da;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Questionário de Pesquisa de Mercado</h1>
+        <form id="surveyForm">
+            <p>Bom dia/tarde/noite, meu nome é ______, sou entrevistador (a) do (a) ________ (MOSTRAR IDENTIFICAÇÃO), estou a serviço da XXX empresa de pesquisa de mercado que está realizando uma pesquisa. Nós estamos conduzindo um estudo e nós ficaríamos muito gratos com a sua ajuda. Por favor, nos dê a sua opinião verdadeira - não nos sentiremos ofendidos se você tiver opiniões negativas sobre alguma coisa. Tenha certeza de que as respostas serão analisadas em conjunto com as de outros respondentes e nunca individualmente. Você gostaria de participar desta pesquisa?</p>
+
+            <div class="question">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" name="Nome Completo" placeholder="Digite seu nome completo">
+            </div>
+
+            <div class="question">
+                <label for="phone">Telefone</label>
+                <input type="text" id="phone" name="Telefone" placeholder="Digite seu telefone">
+            </div>
+
+            <div class="question">
+                <label for="address">Endereço</label>
+                <input type="text" id="address" name="Endereço" placeholder="Digite seu endereço">
+            </div>
+
+            <div class="question">
+                <label for="neighborhood">Bairro</label>
+                <input type="text" id="neighborhood" name="Bairro" placeholder="Digite seu bairro">
+            </div>
+
+            <div class="question">
+                <label for="postal_code">CEP</label>
+                <input type="text" id="postal_code" name="CEP" placeholder="Digite seu CEP">
+            </div>
+
+            <div class="question">
+                <label for="city">Cidade</label>
+                <input type="text" id="city" name="Cidade" placeholder="Digite sua cidade">
+            </div>
+
+            <div class="question">
+                <label for="sex">S1. Anotar Sexo (RU)</label>
+                <div class="options">
+                    <div class="option"><input type="radio" name="Sexo" value="Masculino"> Masculino (ENCERRAR)</div>
+                    <div class="option"><input type="radio" name="Sexo" value="Feminino"> Feminino (CONTINUAR)</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <label for="age">S2. Qual é a sua idade? (RU)</label>
+                <input type="number" id="age" name="Idade" placeholder="Idade">
+                <div class="options">
+                    <div class="option"><input type="radio" name="Faixa Etária" value="Abaixo de 18 anos"> Abaixo de 18 anos (ENCERRAR)</div>
+                    <div class="option"><input type="radio" name="Faixa Etária" value="18 – 34 anos"> 18 – 34 anos (CONTINUAR DE ACORDO COM COTA DE CADA GRUPO)</div>
+                    <div class="option"><input type="radio" name="Faixa Etária" value="35 – 50 anos"> 35 – 50 anos</div>
+                    <div class="option"><input type="radio" name="Faixa Etária" value="Acima de 50 anos"> Acima de 50 anos (ENCERRAR)</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>S3. Você poderia me dizer se você ou alguém da sua casa trabalha em algumas das atividades abaixo:</label>
+                <div class="options">
+                    <div class="option"><input type="checkbox" name="Ocupação" value="Agência de Propaganda"> Agência de Propaganda (ENCERRAR)</div>
+                    <div class="option"><input type="checkbox" name="Ocupação" value="Agência de Pesquisa de Mercado"> Agência de Pesquisa de Mercado (ENCERRAR)</div>
+                    <div class="option"><input type="checkbox" name="Ocupação" value="TV, rádio, jornal, Internet"> TV, rádio, jornal, Internet (ENCERRAR)</div>
+                    <div class="option"><input type="checkbox" name="Ocupação" value="Empresa de relações públicas"> Empresa de relações públicas ou departamento de relações públicas (ENCERRAR)</div>
+                    <div class="option"><input type="checkbox" name="Ocupação" value="Fabricante, Distribuidor, revenda ou venda por catálogo de produtos para cuidados pessoais, higiene e beleza ou produtos de cuidado com a casa"> Fabricante, Distribuidor, revenda ou venda por catálogo de produtos para cuidados pessoais, higiene e beleza ou produtos de cuidado com a casa (ENCERRAR)</div>
+                    <div class="option"><input type="checkbox" name="Ocupação" value="Empresa fabricante de fragrâncias, aromas ou especialidades químicas"> Empresa fabricante de fragrâncias, aromas ou especialidades químicas (ENCERRAR)</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>S5. Você é alérgico ou alguma vez teve alguma reação alérgica para perfumes, hidratantes e cheiros? (RU)</label>
+                <div class="options">
+                    <div class="option"><input type="radio" name="Alergia" value="SIM"> SIM (ENCERRAR)</div>
+                    <div class="option"><input type="radio" name="Alergia" value="NÃO"> NÃO (CONTINUE)</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>S6. Você poderia me dizer se alguma das alternativas abaixo se aplica a você? (RU)</label>
+                <div class="options">
+                    <div class="option"><input type="checkbox" name="Condição" value="Resfriado, sinusite e rinite"> Resfriado, sinusite e rinite (SE SIM, AGRADEÇA E ENCERRE)</div>
+                    <div class="option"><input type="checkbox" name="Condição" value="Asma"> Asma</div>
+                    <div class="option"><input type="checkbox" name="Condição" value="Alérgico ou sensível a alguns alimentos e ingredientes/produtos"> Alérgico ou sensível a alguns alimentos e ingredientes/produtos</div>
+                    <div class="option"><input type="checkbox" name="Condição" value="Usando hoje perfumes e/ou colônia"> Usando hoje perfumes e/ou colônia (ATENÇÃO A ESTA QUESTÃO, O CONSUMIDOR NÃO DEVE ESTAR PERFUMADO OU CONTAMINADA COM PERFUME)</div>
+                    <div class="option"><input type="checkbox" name="Condição" value="Fumante"> Fumante (ATENÇÃO A ESTA QUESTÃO, O CONSUMIDOR NÃO DEVE ESTAR FUMANDO NEM CHEIRANDO CIGARRO)</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>S7. Você ou algum membro da sua família participou de pesquisa de produto ou de alguma marca nos últimos 6 meses? (Não considerar pesquisa política/opinião pública) - (RU)</label>
+                <div class="options">
+                    <div class="option"><input type="radio" name="Participação em Pesquisa" value="SIM"> SIM (ENCERRAR)</div>
+                    <div class="option"><input type="radio" name="Participação em Pesquisa" value="NÃO"> NÃO (CONTINUE)</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>S8. Eu lerei uma lista de diferentes produtos que você pode ou não usar. Para cada um, me diga a frequência com que você os usa durante a semana. (RU)</label>
+                <div class="options">
+                    <label>Loção / Hidratante corporal</label>
+                    <div class="option"><input type="radio" name="Loção / Hidratante corporal" value="Todos Os Dias"> Todos Os Dias</div>
+                    <div class="option"><input type="radio" name="Loção / Hidratante corporal" value="5-6 Vezes Por Semana"> 5-6 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Loção / Hidratante corporal" value="3-4 Vezes Por Semana"> 3-4 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Loção / Hidratante corporal" value="1-2 Vezes Por Semana"> 1-2 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Loção / Hidratante corporal" value="Menos Que Uma Vez Por Semana"> Menos Que Uma Vez Por Semana</div>
+                    <div class="option"><input type="radio" name="Loção / Hidratante corporal" value="Não Uso"> Não Uso</div>
+
+                    <label>Sabonete em barra</label>
+                    <div class="option"><input type="radio" name="Sabonete em barra" value="Todos Os Dias"> Todos Os Dias</div>
+                    <div class="option"><input type="radio" name="Sabonete em barra" value="5-6 Vezes Por Semana"> 5-6 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Sabonete em barra" value="3-4 Vezes Por Semana"> 3-4 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Sabonete em barra" value="1-2 Vezes Por Semana"> 1-2 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Sabonete em barra" value="Menos Que Uma Vez Por Semana"> Menos Que Uma Vez Por Semana</div>
+                    <div class="option"><input type="radio" name="Sabonete em barra" value="Não Uso"> Não Uso</div>
+
+                    <label>Anti-transpirante/Desodorante</label>
+                    <div class="option"><input type="radio" name="Anti-transpirante/Desodorante" value="Todos Os Dias"> Todos Os Dias</div>
+                    <div class="option"><input type="radio" name="Anti-transpirante/Desodorante" value="5-6 Vezes Por Semana"> 5-6 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Anti-transpirante/Desodorante" value="3-4 Vezes Por Semana"> 3-4 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Anti-transpirante/Desodorante" value="1-2 Vezes Por Semana"> 1-2 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Anti-transpirante/Desodorante" value="Menos Que Uma Vez Por Semana"> Menos Que Uma Vez Por Semana</div>
+                    <div class="option"><input type="radio" name="Anti-transpirante/Desodorante" value="Não Uso"> Não Uso</div>
+
+                    <label>Shampoo</label>
+                    <div class="option"><input type="radio" name="Shampoo" value="Todos Os Dias"> Todos Os Dias</div>
+                    <div class="option"><input type="radio" name="Shampoo" value="5-6 Vezes Por Semana"> 5-6 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Shampoo" value="3-4 Vezes Por Semana"> 3-4 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Shampoo" value="1-2 Vezes Por Semana"> 1-2 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Shampoo" value="Menos Que Uma Vez Por Semana"> Menos Que Uma Vez Por Semana</div>
+                    <div class="option"><input type="radio" name="Shampoo" value="Não Uso"> Não Uso</div>
+
+                    <label>Gel de banho / Sabonete líquido</label>
+                    <div class="option"><input type="radio" name="Gel de banho / Sabonete líquido" value="Todos Os Dias"> Todos Os Dias</div>
+                    <div class="option"><input type="radio" name="Gel de banho / Sabonete líquido" value="5-6 Vezes Por Semana"> 5-6 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Gel de banho / Sabonete líquido" value="3-4 Vezes Por Semana"> 3-4 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Gel de banho / Sabonete líquido" value="1-2 Vezes Por Semana"> 1-2 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Gel de banho / Sabonete líquido" value="Menos Que Uma Vez Por Semana"> Menos Que Uma Vez Por Semana</div>
+                    <div class="option"><input type="radio" name="Gel de banho / Sabonete líquido" value="Não Uso"> Não Uso</div>
+
+                    <label>Condicionador</label>
+                    <div class="option"><input type="radio" name="Condicionador" value="Todos Os Dias"> Todos Os Dias</div>
+                    <div class="option"><input type="radio" name="Condicionador" value="5-6 Vezes Por Semana"> 5-6 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Condicionador" value="3-4 Vezes Por Semana"> 3-4 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Condicionador" value="1-2 Vezes Por Semana"> 1-2 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Condicionador" value="Menos Que Uma Vez Por Semana"> Menos Que Uma Vez Por Semana</div>
+                    <div class="option"><input type="radio" name="Condicionador" value="Não Uso"> Não Uso</div>
+
+                    <label>Creme de Pentear</label>
+                    <div class="option"><input
+ type="radio" name="Creme de Pentear" value="Todos Os Dias"> Todos Os Dias</div>
+                    <div class="option"><input type="radio" name="Creme de Pentear" value="5-6 Vezes Por Semana"> 5-6 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Creme de Pentear" value="3-4 Vezes Por Semana"> 3-4 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Creme de Pentear" value="1-2 Vezes Por Semana"> 1-2 Vezes Por Semana</div>
+                    <div class="option"><input type="radio" name="Creme de Pentear" value="Menos Que Uma Vez Por Semana"> Menos Que Uma Vez Por Semana</div>
+                    <div class="option"><input type="radio" name="Creme de Pentear" value="Não Uso"> Não Uso</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>S9. Por favor, me diga qual das frases abaixo melhor descreve o seu envolvimento na escolha e compra dos seu Creme de Pentear? (RU)</label>
+                <div class="options">
+                    <div class="option"><input type="radio" name="Escolha do Creme de Pentear" value="Eu mesma escolho e compro meus produtos"> Eu mesma escolho e compro meus produtos (CONTINUE)</div>
+                    <div class="option"><input type="radio" name="Escolha do Creme de Pentear" value="Eu escolho a marca que eu gosto para alguém da minha família comprá-lo"> Eu escolho a marca que eu gosto para alguém da minha família comprá-lo (ENCERRE)</div>
+                    <div class="option"><input type="radio" name="Escolha do Creme de Pentear" value="Alguém da minha família escolhe e compra meus produtos"> Alguém da minha família escolhe e compra meus produtos (ENCERRE)</div>
+                    <div class="option"><input type="radio" name="Escolha do Creme de Pentear" value="Eu uso o produto que tiver no momento"> Eu uso o produto que tiver no momento (ENCERRE)</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>S10. Quais marcas de CREME DE PENTEAR você usou nos últimos 6 meses? (ESPONTANEA)</label>
+                <input type="text" name="Marcas Usadas" placeholder="Digite as marcas">
+            </div>
+
+            <div class="question">
+                <label>S11. E quais variantes ou a linhas dessas marcas de CREME DE PENTEAR que você usou nos últimos 6 meses? (ESPONTANEA)</label>
+                <input type="text" name="Variantes Usadas" placeholder="Digite as variantes">
+            </div>
+
+            <div class="question">
+                <label>S12. E qual é a marca/variante de CREME DE PENTEAR que você usa com mais frequência? (ESPONTANEA)</label>
+                <input type="text" name="Marca Mais Usada" placeholder="Digite a marca/variante">
+            </div>
+
+            <div class="question">
+                <label>S13. E tem alguma marca/variante que você não usaria de forma nenhuma? (ESPONTANEA)</label>
+                <input type="text" name="Marcas Não Usadas" placeholder="Digite a marca/variante">
+            </div>
+
+            <div class="section">
+                <h3>S15. Agora gostaria de falar sobre comprimento, qual é o tamanho do seu cabelo atualmente? (RU)</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" id="curto" name="Comprimento do Cabelo" value="Curto">
+                        Curto (ENCERRAR)
+                    </label>
+                    <label class="option">
+                        <input type="radio" id="medio" name="Comprimento do Cabelo" value="Médio">
+                        Médio (CONTINUE)
+                    </label>
+                    <label class="option">
+                        <input type="radio" id="longo" name="Comprimento do Cabelo" value="Longo">
+                        Longo (CONTINUE)
+                    </label>
+                    <label class="option">
+                        <input type="radio" id="muito-longo" name="Comprimento do Cabelo" value="Muito longo">
+                        Muito longo (ENCERRAR)
+                    </label>
+                </div>
+                <p>Curto = Acima do queixo / Muito longo = Abaixo da cintura</p>
+            </div>
+
+            <div class="section">
+                <h3>S16. CRITÉRIO BRASIL DE CLASSIFICAÇÃO SÓCIO-ECONÔMICA; CRITERIO NOVO – 2015</h3>
+                <div style="border: 1px solid #ced4da; padding: 10px; border-radius: 4px; margin-bottom: 20px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Posse de itens</th>
+                                <th>Não</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4 ou +</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Banheiros</td>
+                                <td><input type="radio" name="Banheiros" value="0"></td>
+                                <td><input type="radio" name="Banheiros" value="1"></td>
+                                <td><input type="radio" name="Banheiros" value="2"></td>
+                                <td><input type="radio" name="Banheiros" value="3"></td>
+                                <td><input type="radio" name="Banheiros" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>Empregados domésticos</td>
+                                <td><input type="radio" name="Empregados domésticos" value="0"></td>
+                                <td><input type="radio" name="Empregados domésticos" value="1"></td>
+                                <td><input type="radio" name="Empregados domésticos" value="2"></td>
+                                <td><input type="radio" name="Empregados domésticos" value="3"></td>
+                                <td><input type="radio" name="Empregados domésticos" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>Automóveis</td>
+                                <td><input type="radio" name="Automóveis" value="0"></td>
+                                <td><input type="radio" name="Automóveis" value="1"></td>
+                                <td><input type="radio" name="Automóveis" value="2"></td>
+                                <td><input type="radio" name="Automóveis" value="3"></td>
+                                <td><input type="radio" name="Automóveis" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>Microcomputador</td>
+                                <td><input type="radio" name="Microcomputador" value="0"></td>
+                                <td><input type="radio" name="Microcomputador" value="1"></td>
+                                <td><input type="radio" name="Microcomputador" value="2"></td>
+                                <td><input type="radio" name="Microcomputador" value="3"></td>
+                                <td><input type="radio" name="Microcomputador" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>Lava louças</td>
+                                <td><input type="radio" name="Lava louças" value="0"></td>
+                                <td><input type="radio" name="Lava louças" value="1"></td>
+                                <td><input type="radio" name="Lava louças" value="2"></td>
+                                <td><input type="radio" name="Lava louças" value="3"></td>
+                                <td><input type="radio" name="Lava louças" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>Geladeira</td>
+                                <td><input type="radio" name="Geladeira" value="0"></td>
+                                <td><input type="radio" name="Geladeira" value="1"></td>
+                                <td><input type="radio" name="Geladeira" value="2"></td>
+                                <td><input type="radio" name="Geladeira" value="3"></td>
+                                <td><input type="radio" name="Geladeira" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>Freezer</td>
+                                <td><input type="radio" name="Freezer" value="0"></td>
+                                <td><input type="radio" name="Freezer" value="1"></td>
+                                <td><input type="radio" name="Freezer" value="2"></td>
+                                <td><input type="radio" name="Freezer" value="3"></td>
+                                <td><input type="radio" name="Freezer" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>Lava roupas</td>
+                                <td><input type="radio" name="Lava roupas" value="0"></td>
+                                <td><input type="radio" name="Lava roupas" value="1"></td>
+                                <td><input type="radio" name="Lava roupas" value="2"></td>
+                                <td><input type="radio" name="Lava roupas" value="3"></td>
+                                <td><input type="radio" name="Lava roupas" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>DVD</td>
+                                <td><input type="radio" name="DVD" value="0"></td>
+                                <td><input type="radio" name="DVD" value="1"></td>
+                                <td><input type="radio" name="DVD" value="2"></td>
+                                <td><input type="radio" name="DVD" value="3"></td>
+                                <td><input type="radio" name="DVD" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>Micro-ondas</td>
+                                <td><input type="radio" name="Micro-ondas" value="0"></td>
+                                <td><input type="radio" name="Micro-ondas" value="1"></td>
+                                <td><input type="radio" name="Micro-ondas" value="2"></td>
+                                <td><input type="radio" name="Micro-ondas" value="3"></td>
+                                <td><input type="radio" name="Micro-ondas" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>Motocicleta</td>
+                                <td><input type="radio" name="Motocicleta" value="0"></td>
+                                <td><input type="radio" name="Motocicleta" value="1"></td>
+                                <td><input type="radio" name="Motocicleta" value="2"></td>
+                                <td><input type="radio" name="Motocicleta" value="3"></td>
+                                <td><input type="radio" name="Motocicleta" value="4 ou +"></td>
+                            </tr>
+                            <tr>
+                                <td>Secadora roupas</td>
+                                <td><input type="radio" name="Secadora roupas" value="0"></td>
+                                <td><input type="radio" name="Secadora roupas" value="1"></td>
+                                <td><input type="radio" name="Secadora roupas" value="2"></td>
+                                <td><input type="radio" name="Secadora roupas" value="3"></td>
+                                <td><input type="radio" name="Secadora roupas" value="4 ou +"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Grau de Instrução do Chefe da Família</h3>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="analfabeto" name="Grau de Instrução" value="Analfabeto / Fundamental Incompleto">
+                        <label for="analfabeto">Analfabeto / Fundamental Incompleto</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="fundamental1" name="Grau de Instrução" value="Fundamental I completo / Fundamental II incompleto">
+                        <label for="fundamental1">Fundamental I completo / Fundamental II incompleto</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="fundamental2" name="Grau de Instrução" value="Fundamental II completo / Médio incompleto">
+                        <label for="fundamental2">Fundamental II completo / Médio incompleto</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="medio" name="Grau de Instrução" value="Médio completo / Superior incompleto">
+                        <label for="medio">Médio completo / Superior incompleto</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="superior" name="Grau de Instrução" value="Superior Completo">
+                        <label for="superior">Superior Completo</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Acesso a Serviços Públicos</h3>
+                <div class="options">
+                    <div class="option">
+                        <input type="checkbox" id="aguaEncanada" name="Acesso a Serviços Públicos" value="Água encanada">
+                        <label for="aguaEncanada">Água encanada</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="ruaPavimentada" name="Acesso a Serviços Públicos" value="Rua pavimentada">
+                        <label for="ruaPavimentada">Rua pavimentada</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="button">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('#surveyForm');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Coleta os dados do formulário
+                const formData = new FormData(form);
+                const data = {};
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+
+                // URL da API do SheetMonkey (substitua pelo seu endpoint)
+                const url = 'https://api.sheetmonkey.io/form/iVZSxg67jWynSAA2vWcENs';
+
+                // Envia os dados para o SheetMonkey
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Sucesso:', result);
+                    alert('Respostas enviadas com sucesso!');
+                    form.reset(); // Reseta o formulário após o envio
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Ocorreu um erro ao enviar as respostas.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+`
