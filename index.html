@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,7 +6,7 @@
     <title>Questionário de Pesquisa de Mercado</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f9fa;
@@ -26,6 +25,7 @@
             text-align: center;
             color: #343a40;
             margin-bottom: 20px;
+            font-size: 24px;
         }
 
         label {
@@ -33,6 +33,7 @@
             margin-top: 15px;
             font-weight: bold;
             color: #495057;
+            font-size: 16px;
         }
 
         input[type="text"],
@@ -45,6 +46,7 @@
             border: 1px solid #ced4da;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 14px;
         }
 
         input[type="radio"],
@@ -83,15 +85,25 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s;
+            font-size: 16px;
         }
 
         .button:hover {
             background-color: #0056b3;
         }
 
+        .section {
+            border: 1px solid #ced4da;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
         .section h3 {
-            margin-top: 30px;
+            margin-top: 0;
             color: #343a40;
+            font-size: 18px;
         }
 
         table {
@@ -107,6 +119,7 @@
         th, td {
             padding: 10px;
             text-align: center;
+            font-size: 14px;
         }
 
         @media (max-width: 600px) {
@@ -220,6 +233,7 @@
                     <div class="option"><input type="checkbox" name="Ocupação" value="Empresa de relações públicas"> Empresa de relações públicas ou departamento de relações públicas (ENCERRAR)</div>
                     <div class="option"><input type="checkbox" name="Ocupação" value="Fabricante, Distribuidor, revenda ou venda por catálogo de produtos para cuidados pessoais, higiene e beleza ou produtos de cuidado com a casa"> Fabricante, Distribuidor, revenda ou venda por catálogo de produtos para cuidados pessoais, higiene e beleza ou produtos de cuidado com a casa (ENCERRAR)</div>
                     <div class="option"><input type="checkbox" name="Ocupação" value="Empresa fabricante de fragrâncias, aromas ou especialidades químicas"> Empresa fabricante de fragrâncias, aromas ou especialidades químicas (ENCERRAR)</div>
+                    <div class="option"><input type="checkbox" name="Ocupação" value="Nenhuma das anteriores"> Nenhuma das anteriores</div>
                 </div>
             </div>
 
@@ -237,8 +251,9 @@
                     <div class="option"><input type="checkbox" name="Condição" value="Resfriado, sinusite e rinite"> Resfriado, sinusite e rinite (SE SIM, AGRADEÇA E ENCERRE)</div>
                     <div class="option"><input type="checkbox" name="Condição" value="Asma"> Asma</div>
                     <div class="option"><input type="checkbox" name="Condição" value="Alérgico ou sensível a alguns alimentos e ingredientes/produtos"> Alérgico ou sensível a alguns alimentos e ingredientes/produtos</div>
-                    <div class="option"><input type="checkbox" name="Condição" value="Usando hoje perfumes e/ou colônia"> Usando hoje perfumes e/ou colônia (ATENÇÃO A ESTA QUESTÃO, O CONSUMIDOR NÃO DEVE ESTAR PERFUMADO OU CONTAMINADA COM PERFUME)</div>
+                    <div class="option"><input type="checkbox" name="Condição" value="Usando hoje perfumes e/ou colônia"> Usando hoje perfumes e/ou colônia (ATENÇÃO A ESTA QUESTÃO, O CONSUMIDOR NÃO DEVE ESTAR PERFUMADO OU CONTAMINADO COM PERFUME)</div>
                     <div class="option"><input type="checkbox" name="Condição" value="Fumante"> Fumante (ATENÇÃO A ESTA QUESTÃO, O CONSUMIDOR NÃO DEVE ESTAR FUMANDO NEM CHEIRANDO CIGARRO)</div>
+                    <div class="option"><input type="checkbox" name="Condição" value="Nenhuma das anteriores"> Nenhuma das anteriores</div>
                 </div>
             </div>
 
@@ -302,8 +317,7 @@
                     <div class="option"><input type="radio" name="Condicionador" value="Não Uso"> Não Uso</div>
 
                     <label>Creme de Pentear</label>
-                    <div class="option"><input
- type="radio" name="Creme de Pentear" value="Todos Os Dias"> Todos Os Dias</div>
+                    <div class="option"><input type="radio" name="Creme de Pentear" value="Todos Os Dias"> Todos Os Dias</div>
                     <div class="option"><input type="radio" name="Creme de Pentear" value="5-6 Vezes Por Semana"> 5-6 Vezes Por Semana</div>
                     <div class="option"><input type="radio" name="Creme de Pentear" value="3-4 Vezes Por Semana"> 3-4 Vezes Por Semana</div>
                     <div class="option"><input type="radio" name="Creme de Pentear" value="1-2 Vezes Por Semana"> 1-2 Vezes Por Semana</div>
@@ -365,8 +379,6 @@
                 <p>Curto = Acima do queixo / Muito longo = Abaixo da cintura</p>
             </div>
 
-     
-
             <div class="section">
                 <h3>Grau de Instrução do Chefe da Família</h3>
                 <div class="options">
@@ -406,21 +418,28 @@
                     </div>
                 </div>
             </div>
-            <form id="surveyForm">
-        <fieldset>
-            <legend>FILTROS SOCIOECONÔMICOS</legend>
-            <p>Esta pergunta é reservada. Ninguém saberá sua resposta. Precisamos saber sua faixa de renda FAMILIAR. Essa informação é sigilosa!</p>
-            <label>
-                <input type="radio" name="renda" value="desempregado_dona_de_casa"> Está desempregado ou não tem renda fixa/ Dona-de-casa (C2/D)
-            </label><br>
-            <label>
-                <input type="radio" name="renda" value="ate_2_salarios_minimos"> Até 2 salários mínimos por mês (C2/D)
-            </label><br>
-            <label>
-                <input type="radio" name="renda" value="entre_2_e_5_salarios_minimos"> Entre 2 e 5 salários mínimos por mês (B2/C1)
-            </label><br>
-        </fieldset>
-    <fieldset>
+
+            <div class="section">
+                <h3>Filtros Socioeconômicos</h3>
+                <p>Esta pergunta é reservada. Ninguém saberá sua resposta. Precisamos saber sua faixa de renda FAMILIAR. Essa informação é sigilosa!</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="renda" value="desempregado_dona_de_casa"> Está desempregado ou não tem renda fixa/ Dona-de-casa (C2/D)
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="renda" value="ate_2_salarios_minimos"> Até 2 salários mínimos por mês (C2/D)
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="renda" value="entre_2_e_5_salarios_minimos"> Entre 2 e 5 salários mínimos por mês (B2/C1)
+                    </label>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="button">Enviar</button>
+            </div>
+        </form>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.querySelector('#surveyForm');
@@ -458,7 +477,5 @@
             });
         });
     </script>
-    
 </body>
 </html>
-`
